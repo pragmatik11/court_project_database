@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Penals list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numar</th>
+                <th>Nume</th>
+                <th>Descriere</th>
+                <th>Data</th>
+                <th>Upload</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for penal in penals %}
+            <tr>
+                <td><a href="{{ path('penal_show', { 'id': penal.id }) }}">{{ penal.id }}</a></td>
+                <td>{{ penal.numar }}</td>
+                <td>{{ penal.nume }}</td>
+                <td>{{ penal.descriere }}</td>
+                <td>{% if penal.data %}{{ penal.data|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ penal.pdfFilename }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('penal_show', { 'id': penal.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('penal_edit', { 'id': penal.id }) }}">edit</a>
+                        </li>
+
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('penal_new') }}">Create a new penal</a>
+        </li>
+        <li>
+            <a href="{{ path('homepage') }}">Homepage</a>
+        </li>
+    </ul>
+{% endblock %}

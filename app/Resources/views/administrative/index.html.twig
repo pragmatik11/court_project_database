@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Administratives list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numar</th>
+                <th>Nume</th>
+                <th>Descriere</th>
+                <th>Data</th>
+                <th>Upload</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for administrative in administratives %}
+            <tr>
+                <td><a href="{{ path('administrative_show', { 'id': administrative.id }) }}">{{ administrative.id }}</a></td>
+                <td>{{ administrative.numar }}</td>
+                <td>{{ administrative.nume }}</td>
+                <td>{{ administrative.descriere }}</td>
+                <td>{% if administrative.data %}{{ administrative.data|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ administrative.pdfFilename }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('administrative_show', { 'id': administrative.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('administrative_edit', { 'id': administrative.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('administrative_new') }}">Create a new administrative</a>
+        </li>
+        <li>
+            <a href="{{ path('homepage') }}">Homepage</a>
+        </li>
+    </ul>
+{% endblock %}

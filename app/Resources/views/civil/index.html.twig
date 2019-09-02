@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Civils list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numar</th>
+                <th>Nume</th>
+                <th>Descriere</th>
+                <th>Data</th>
+                <th>Upload</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for civil in civils %}
+            <tr>
+                <td><a href="{{ path('civil_show', { 'id': civil.id }) }}">{{ civil.id }}</a></td>
+                <td>{{ civil.numar }}</td>
+                <td>{{ civil.nume }}</td>
+                <td>{{ civil.descriere }}</td>
+                <td>{% if civil.data %}{{ civil.data|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ civil.pdfFilename }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('civil_show', { 'id': civil.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('civil_edit', { 'id': civil.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('civil_new') }}">Create a new civil</a>
+        </li>
+        <li>
+            <a href="{{ path('homepage') }}">Homepage</a>
+        </li>
+    </ul>
+{% endblock %}

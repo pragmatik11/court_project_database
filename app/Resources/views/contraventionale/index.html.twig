@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Contraventionales list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numar</th>
+                <th>Nume</th>
+                <th>Descriere</th>
+                <th>Data</th>
+                <th>Upload</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contraventionale in contraventionales %}
+            <tr>
+                <td><a href="{{ path('contraventionale_show', { 'id': contraventionale.id }) }}">{{ contraventionale.id }}</a></td>
+                <td>{{ contraventionale.numar }}</td>
+                <td>{{ contraventionale.nume }}</td>
+                <td>{{ contraventionale.descriere }}</td>
+                <td>{% if contraventionale.data %}{{ contraventionale.data|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ contraventionale.pdfFilename }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('contraventionale_show', { 'id': contraventionale.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('contraventionale_edit', { 'id': contraventionale.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('contraventionale_new') }}">Create a new contraventionale</a>
+        </li>
+        <li>
+            <a href="{{ path('homepage') }}">Homepage</a>
+        </li>
+    </ul>
+{% endblock %}

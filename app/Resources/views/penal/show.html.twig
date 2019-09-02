@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Penal</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ penal.id }}</td>
+            </tr>
+            <tr>
+                <th>Numar</th>
+                <td>{{ penal.numar }}</td>
+            </tr>
+            <tr>
+                <th>Nume</th>
+                <td>{{ penal.nume }}</td>
+            </tr>
+            <tr>
+                <th>Descriere</th>
+                <td>{{ penal.descriere }}</td>
+            </tr>
+            <tr>
+                <th>Data</th>
+                <td>{% if penal.data %}{{ penal.data|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            tr>
+            <th>Upload</th>
+            <a href="{{ asset('uploads/upload'~ civil.pdfFilename) }}">View brochure (PDF)</a>
+            </tr>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('penal_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('penal_edit', { 'id': penal.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

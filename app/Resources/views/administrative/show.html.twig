@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Administrative</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ administrative.id }}</td>
+            </tr>
+            <tr>
+                <th>Numar</th>
+                <td>{{ administrative.numar }}</td>
+            </tr>
+            <tr>
+                <th>Nume</th>
+                <td>{{ administrative.nume }}</td>
+            </tr>
+            <tr>
+                <th>Descriere</th>
+                <td>{{ administrative.descriere }}</td>
+            </tr>
+            <tr>
+                <th>Data</th>
+                <td>{% if administrative.data %}{{ administrative.data|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            tr>
+            <th>Upload</th>
+            <a href="{{ asset('uploads/upload'~ civil.pdfFilename) }}">View brochure (PDF)</a>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('administrative_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('administrative_edit', { 'id': administrative.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

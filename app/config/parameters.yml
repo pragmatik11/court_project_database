@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: court
+    database_user: root
+    database_password: coderslab
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: moroz.anatol1992@gmail.com
+    mailer_password: 222
+    secret: c24eed0b54460c4f367e76fe05639b0b551f532a
