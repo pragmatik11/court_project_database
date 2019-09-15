@@ -52,13 +52,14 @@ class ContraventionaleController extends Controller
             if ($pdfFile) {
                 $originalFilename = pathinfo($pdfFile->getClientOriginalName(), PATHINFO_FILENAME);
                 // this is needed to safely include the file name as part of the URL
-
+                $safeFilename = $originalFilename;
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $pdfFile->guessExtension();
 
                 // Move the file to the directory where brochures are stored
                 try {
                     $pdfFile->move(
                         $this->getParameter('pdf_directory'),
-                        $pdfFile
+                        $newFilename
                     );
                 } catch (FileException $e) {
                     // ... handle exception if something happens during file upload
@@ -66,7 +67,9 @@ class ContraventionaleController extends Controller
 
                 // updates the 'brochureFilename' property to store the PDF file name
                 // instead of its contents
-                $contraventionale->setPdfFIleName($pdfFile);
+                $contraventionale->setPdfFIleName($newFilename);
+
+            }
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($contraventionale);
                 $em->flush();
@@ -78,7 +81,7 @@ class ContraventionaleController extends Controller
                 'contraventionale' => $contraventionale,
                 'form' => $form->createView(),
             ));
-        }
+
     }
 
     /**

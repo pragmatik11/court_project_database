@@ -102,8 +102,8 @@ class __TwigTemplate_bea3e4085194df48d5e955093ce55578ed3c46a3c1f4ebc3a494310cd46
                 <th>Upload</th>
                 <a href=\"";
         // line 30
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("uploads/upload" . $this->getAttribute(($context["civil"] ?? $this->getContext($context, "civil")), "pdfFilename", []))), "html", null, true);
-        echo "\">View brochure (PDF)</a>
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("uploads/upload/" . $this->getAttribute(($context["civil"] ?? $this->getContext($context, "civil")), "pdfFilename", []))), "html", null, true);
+        echo "\">View (PDF)</a>
             </tr>
         </tbody>
     </table>
@@ -196,7 +196,7 @@ class __TwigTemplate_bea3e4085194df48d5e955093ce55578ed3c46a3c1f4ebc3a494310cd46
             </tr>
             <tr>
                 <th>Upload</th>
-                <a href=\"{{ asset('uploads/upload'~ civil.pdfFilename) }}\">View brochure (PDF)</a>
+                <a href=\"{{ asset('uploads/upload/'~ civil.pdfFilename) }}\">View (PDF)</a>
             </tr>
         </tbody>
     </table>

@@ -3,11 +3,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Penal;
-use AppBundle\Form\CivilType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -52,13 +53,15 @@ class PenalController extends Controller
             if ($pdfFile) {
                 $originalFilename = pathinfo($pdfFile->getClientOriginalName(), PATHINFO_FILENAME);
                 // this is needed to safely include the file name as part of the URL
+                $safeFilename = $originalFilename;
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$pdfFile->guessExtension();
 
 
                 // Move the file to the directory where brochures are stored
                 try {
                     $pdfFile->move(
                         $this->getParameter('pdf_directory'),
-                        $pdfFile
+                        $newFilename
                     );
                 } catch (FileException $e) {
                     // ... handle exception if something happens during file upload
@@ -66,7 +69,7 @@ class PenalController extends Controller
 
                 // updates the 'brochureFilename' property to store the PDF file name
                 // instead of its contents
-                $penal->setPdfFIleName($pdfFile);
+                $penal->setPdfFIleName($newFilename);
             }
             $em = $this->getDoctrine()->getManager();
             $em->persist($penal);

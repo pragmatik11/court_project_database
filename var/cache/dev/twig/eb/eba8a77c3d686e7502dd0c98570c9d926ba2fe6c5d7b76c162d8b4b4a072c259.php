@@ -68,7 +68,8 @@ class __TwigTemplate_976c4876dcae047896af8c4a8ed523b39ea9a48eb3a7dc105e3792a4e15
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
         // line 16
-        echo "    </body>
+        echo "    
+    </body>
 </html>
 ";
         
@@ -160,7 +161,7 @@ class __TwigTemplate_976c4876dcae047896af8c4a8ed523b39ea9a48eb3a7dc105e3792a4e15
 
     public function getDebugInfo()
     {
-        return array (  135 => 15,  118 => 14,  101 => 6,  83 => 5,  71 => 16,  68 => 15,  66 => 14,  59 => 10,  52 => 7,  50 => 6,  46 => 5,  40 => 1,);
+        return array (  136 => 15,  119 => 14,  102 => 6,  84 => 5,  71 => 16,  68 => 15,  66 => 14,  59 => 10,  52 => 7,  50 => 6,  46 => 5,  40 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -188,6 +189,7 @@ class __TwigTemplate_976c4876dcae047896af8c4a8ed523b39ea9a48eb3a7dc105e3792a4e15
 
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+    
     </body>
 </html>
 ", "base.html.twig", "/var/www/court_database2/app/Resources/views/base.html.twig");

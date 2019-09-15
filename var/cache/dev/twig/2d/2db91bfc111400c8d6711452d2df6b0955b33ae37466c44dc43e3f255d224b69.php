@@ -68,24 +68,21 @@ class __TwigTemplate_b5674c218b8013660b0292289213030efa5013b3018cb87a5c3eea7436c
         // line 13
         echo twig_escape_filter($this->env, ($context["last_username"] ?? $this->getContext($context, "last_username")), "html", null, true);
         echo "\" required=\"required\" autocomplete=\"username\" />
-<br>
-    <br>
+
     <label for=\"password\">";
-        // line 16
+        // line 15
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("security.login.password", [], "FOSUserBundle"), "html", null, true);
         echo "</label>
     <input type=\"password\" id=\"password\" name=\"_password\" required=\"required\" autocomplete=\"current-password\" />
-<br>
-<br>
+
     <input type=\"checkbox\" id=\"remember_me\" name=\"_remember_me\" value=\"on\" />
     <label for=\"remember_me\">";
-        // line 21
+        // line 19
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("security.login.remember_me", [], "FOSUserBundle"), "html", null, true);
         echo "</label>
-<br>
-<br>
+
     <input type=\"submit\" id=\"_submit\" name=\"_submit\" value=\"";
-        // line 24
+        // line 21
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("security.login.submit", [], "FOSUserBundle"), "html", null, true);
         echo "\" />
 </form>
@@ -110,7 +107,7 @@ class __TwigTemplate_b5674c218b8013660b0292289213030efa5013b3018cb87a5c3eea7436c
 
     public function getDebugInfo()
     {
-        return array (  89 => 24,  83 => 21,  75 => 16,  69 => 13,  65 => 12,  62 => 11,  56 => 9,  54 => 8,  50 => 7,  47 => 6,  41 => 4,  39 => 3,  36 => 2,);
+        return array (  86 => 21,  81 => 19,  74 => 15,  69 => 13,  65 => 12,  62 => 11,  56 => 9,  54 => 8,  50 => 7,  47 => 6,  41 => 4,  39 => 3,  36 => 2,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -136,18 +133,15 @@ class __TwigTemplate_b5674c218b8013660b0292289213030efa5013b3018cb87a5c3eea7436c
 
     <label for=\"username\">{{ 'security.login.username'|trans }}</label>
     <input type=\"text\" id=\"username\" name=\"_username\" value=\"{{ last_username }}\" required=\"required\" autocomplete=\"username\" />
-<br>
-    <br>
+
     <label for=\"password\">{{ 'security.login.password'|trans }}</label>
     <input type=\"password\" id=\"password\" name=\"_password\" required=\"required\" autocomplete=\"current-password\" />
-<br>
-<br>
+
     <input type=\"checkbox\" id=\"remember_me\" name=\"_remember_me\" value=\"on\" />
     <label for=\"remember_me\">{{ 'security.login.remember_me'|trans }}</label>
-<br>
-<br>
+
     <input type=\"submit\" id=\"_submit\" name=\"_submit\" value=\"{{ 'security.login.submit'|trans }}\" />
 </form>
-", "@FOSUser/Security/login_content.html.twig", "/home/anto/Workspace/court_project_database/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login_content.html.twig");
+", "@FOSUser/Security/login_content.html.twig", "/var/www/court_database2/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login_content.html.twig");
     }
 }

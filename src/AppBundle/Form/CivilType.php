@@ -49,9 +49,8 @@ class CivilType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
-            'data_class' => Civil::class,]
-        );
+        $resolver->setDefaults(array(
+            'data_class' => 'AppBundle\Entity\Civil'));
     }
 
     /**

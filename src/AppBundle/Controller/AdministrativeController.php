@@ -5,7 +5,10 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Administrative;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Administrative controller.
@@ -49,13 +52,14 @@ class AdministrativeController extends Controller
             if ($pdfFile) {
                 $originalFilename = pathinfo($pdfFile->getClientOriginalName(), PATHINFO_FILENAME);
                 // this is needed to safely include the file name as part of the URL
-
+                $safeFilename = $originalFilename;
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $pdfFile->guessExtension();                // this
 
                 // Move the file to the directory where brochures are stored
                 try {
                     $pdfFile->move(
                         $this->getParameter('pdf_directory'),
-                        $pdfFile
+                        $newFilename
                     );
                 } catch (FileException $e) {
                     // ... handle exception if something happens during file upload
@@ -63,7 +67,10 @@ class AdministrativeController extends Controller
 
                 // updates the 'brochureFilename' property to store the PDF file name
                 // instead of its contents
-                $administrative->setPdfFIleName($pdfFile);
+                $administrative->setPdfFIleName($newFilename);
+
+            }
+
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($administrative);
                 $em->flush();
@@ -75,7 +82,7 @@ class AdministrativeController extends Controller
                 'administrative' => $administrative,
                 'form' => $form->createView(),
             ));
-        }
+
     }
 
     /**

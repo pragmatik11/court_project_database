@@ -105,7 +105,7 @@ class __TwigTemplate_3d335d45c68332f4fd72bd4fbc6ef4aa076de9443b2a9be30cf5b3c6afc
             echo "</td>
                 <td>";
             // line 26
-            echo twig_escape_filter($this->env, $this->getAttribute($context["penal"], "upload", []), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["penal"], "pdfFilename", []), "html", null, true);
             echo "</td>
                 <td>
                     <ul>
@@ -121,7 +121,7 @@ class __TwigTemplate_3d335d45c68332f4fd72bd4fbc6ef4aa076de9443b2a9be30cf5b3c6afc
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("penal_edit", ["id" => $this->getAttribute($context["penal"], "id", [])]), "html", null, true);
             echo "\">edit</a>
                         </li>
-                       
+
                     </ul>
                 </td>
             </tr>
@@ -207,7 +207,7 @@ class __TwigTemplate_3d335d45c68332f4fd72bd4fbc6ef4aa076de9443b2a9be30cf5b3c6afc
                 <td>{{ penal.nume }}</td>
                 <td>{{ penal.descriere }}</td>
                 <td>{% if penal.data %}{{ penal.data|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ penal.upload }}</td>
+                <td>{{ penal.pdfFilename }}</td>
                 <td>
                     <ul>
                         <li>
@@ -216,7 +216,7 @@ class __TwigTemplate_3d335d45c68332f4fd72bd4fbc6ef4aa076de9443b2a9be30cf5b3c6afc
                         <li>
                             <a href=\"{{ path('penal_edit', { 'id': penal.id }) }}\">edit</a>
                         </li>
-                       
+
                     </ul>
                 </td>
             </tr>

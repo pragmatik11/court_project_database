@@ -63,21 +63,22 @@ class __TwigTemplate_375af708009fbb6ed41061f34486d5917cab7da679126a31f9c7fdbfc2e
         // line 6
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_start');
         echo "
-        ";
-        // line 7
+
+    ";
+        // line 8
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(($context["form"] ?? $this->getContext($context, "form")), 'widget');
         echo "
 
     <input type=\"submit\" value=\"Create\" />
     ";
-        // line 10
+        // line 11
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end');
         echo "
 
     <ul>
         <li>
             <a href=\"";
-        // line 14
+        // line 15
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("penal_index");
         echo "\">Back to the list</a>
         </li>
@@ -103,7 +104,7 @@ class __TwigTemplate_375af708009fbb6ed41061f34486d5917cab7da679126a31f9c7fdbfc2e
 
     public function getDebugInfo()
     {
-        return array (  81 => 14,  74 => 10,  68 => 7,  64 => 6,  60 => 4,  51 => 3,  29 => 1,);
+        return array (  82 => 15,  75 => 11,  69 => 8,  64 => 6,  60 => 4,  51 => 3,  29 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -122,7 +123,8 @@ class __TwigTemplate_375af708009fbb6ed41061f34486d5917cab7da679126a31f9c7fdbfc2e
     <h1>Penal creation</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+
+    {{ form_widget(form) }}
 
     <input type=\"submit\" value=\"Create\" />
     {{ form_end(form) }}

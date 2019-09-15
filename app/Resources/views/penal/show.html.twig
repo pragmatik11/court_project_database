@@ -4,7 +4,7 @@
     <h1>Penal</h1>
 
     <table>
-        <tbody>
+        <body>
             <tr>
                 <th>Id</th>
                 <td>{{ penal.id }}</td>
@@ -25,10 +25,11 @@
                 <th>Data</th>
                 <td>{% if penal.data %}{{ penal.data|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
-            tr>
+
             <th>Upload</th>
-            <a href="{{ asset('uploads/upload'~ civil.pdfFilename) }}">View brochure (PDF)</a>
+            <a href="{{ asset('uploads/upload/'~ penal.pdfFilename) }}">View (PDF)</a>
             </tr>
+        </body>
     </table>
 
     <ul>

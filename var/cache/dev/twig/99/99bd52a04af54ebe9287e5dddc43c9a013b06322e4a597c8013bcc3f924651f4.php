@@ -60,7 +60,7 @@ class __TwigTemplate_14191f286a5c2025d83a998fb37d4d86dc31d161d9a7f6051616e94f938
         echo "    <h1>Penal</h1>
 
     <table>
-        <tbody>
+        <body>
             <tr>
                 <th>Id</th>
                 <td>";
@@ -98,11 +98,14 @@ class __TwigTemplate_14191f286a5c2025d83a998fb37d4d86dc31d161d9a7f6051616e94f938
         }
         echo "</td>
             </tr>
-            <tr>
-                <th>Upload</th>
 
+            <th>Upload</th>
+            <a href=\"";
+        // line 30
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("uploads/upload/" . $this->getAttribute(($context["penal"] ?? $this->getContext($context, "penal")), "pdfFilename", []))), "html", null, true);
+        echo "\">View (PDF)</a>
             </tr>
-        </tbody>
+        </body>
     </table>
 
     <ul>
@@ -151,7 +154,7 @@ class __TwigTemplate_14191f286a5c2025d83a998fb37d4d86dc31d161d9a7f6051616e94f938
 
     public function getDebugInfo()
     {
-        return array (  129 => 45,  124 => 43,  118 => 40,  112 => 37,  96 => 26,  89 => 22,  82 => 18,  75 => 14,  68 => 10,  60 => 4,  51 => 3,  29 => 1,);
+        return array (  132 => 45,  127 => 43,  121 => 40,  115 => 37,  105 => 30,  96 => 26,  89 => 22,  82 => 18,  75 => 14,  68 => 10,  60 => 4,  51 => 3,  29 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -170,7 +173,7 @@ class __TwigTemplate_14191f286a5c2025d83a998fb37d4d86dc31d161d9a7f6051616e94f938
     <h1>Penal</h1>
 
     <table>
-        <tbody>
+        <body>
             <tr>
                 <th>Id</th>
                 <td>{{ penal.id }}</td>
@@ -191,11 +194,11 @@ class __TwigTemplate_14191f286a5c2025d83a998fb37d4d86dc31d161d9a7f6051616e94f938
                 <th>Data</th>
                 <td>{% if penal.data %}{{ penal.data|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
-            <tr>
-                <th>Upload</th>
 
+            <th>Upload</th>
+            <a href=\"{{ asset('uploads/upload/'~ penal.pdfFilename) }}\">View (PDF)</a>
             </tr>
-        </tbody>
+        </body>
     </table>
 
     <ul>

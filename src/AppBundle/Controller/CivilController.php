@@ -54,13 +54,15 @@ class CivilController extends Controller
             if ($pdfFile) {
                 $originalFilename = pathinfo($pdfFile->getClientOriginalName(), PATHINFO_FILENAME);
                 // this is needed to safely include the file name as part of the URL
+                $safeFilename = $originalFilename;
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$pdfFile->guessExtension();                // this is needed to safely include the file name as part of the URL
 
 
                 // Move the file to the directory where brochures are stored
                 try {
                     $pdfFile->move(
                         $this->getParameter('pdf_directory'),
-                        $pdfFile
+                        $newFilename
                     );
                 } catch (FileException $e) {
                     // ... handle exception if something happens during file upload
@@ -68,7 +70,7 @@ class CivilController extends Controller
 
                 // updates the 'brochureFilename' property to store the PDF file name
                 // instead of its contents
-                $civil->setPdfFIleName($pdfFile);
+                $civil->setPdfFIleName($newFilename);
 
             }
 
